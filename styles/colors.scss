@@ -1,0 +1,27 @@
+$primary-color: #d1411e;
+
+$breakpoint-up: (
+  "small": 480px,
+  "medium": 768px,
+  "large": 1024px,
+  "xlarge": 1200px,
+);
+
+$breakpoint-down: (
+  "small": 479px,
+  "medium": 767px,
+  "large": 1023px,
+  "xlarge": 1199px,
+);
+
+@mixin breakpoint-up($size) {
+  @media screen and (min-width: map-get($breakpoint-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media screen and (max-width: map-get($breakpoint-down, $size)) {
+    @content;
+  }
+}

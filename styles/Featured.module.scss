@@ -1,0 +1,36 @@
+@import "../styles/colors.scss";
+
+.featured {
+  height: calc(100vh - 100px);
+  background-color: $primary-color;
+  overflow: hidden;
+  position: relative;
+
+  @include breakpoint-down(medium) {
+    height: 50vh;
+  }
+
+  &__wrapper {
+    width: 300vw;
+    height: 100%;
+    display: flex;
+    transition: all 1s ease-in-out;
+  }
+
+  &__imgContainer {
+    width: 100vw;
+    position: relative;
+    height: 100%;
+  }
+
+  &__arrowContainer {
+    position: absolute;
+    width: 10%;
+    height: 20%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+    z-index: 2;
+  }
+}

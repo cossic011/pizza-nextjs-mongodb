@@ -1,0 +1,170 @@
+@import "../styles/colors.scss";
+
+.order {
+  padding: 50px;
+  display: flex;
+
+  @include breakpoint-down(small) {
+    padding-bottom: 0px;
+  }
+
+  @include breakpoint-down(medium) {
+    flex-direction: column;
+  }
+
+  @include breakpoint-down(small) {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  &__left {
+    flex: 2;
+    @include breakpoint-down(small) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
+
+  &__table {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 50px;
+
+    .order__tr {
+      @include breakpoint-down(medium) {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    tr:first-child {
+      @include breakpoint-down(medium) {
+        display: none;
+      }
+    }
+  }
+
+  &__row:last-child {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint-down(medium) {
+      width: 100%;
+    }
+
+    @include breakpoint-down(small) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+
+  &__done {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__inProgress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: inProgress 1s ease infinite alternate;
+
+    @keyframes inProgress {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__undone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.3;
+  }
+
+  &__undone &__checkedIcon,
+  &__inProgress &__checkedIcon {
+    display: none;
+  }
+
+  &__right {
+    flex: 1;
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-height: 300px;
+    background-color: #333;
+    padding: 50px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    border-radius: 50px;
+
+    @include breakpoint-down(small) {
+      border-radius: 0px;
+    }
+
+    @include breakpoint-down(medium) {
+      margin-top: 50px;
+    }
+  }
+
+  &__totalTextTitle {
+    margin-right: 10px;
+  }
+
+  &__button {
+    font-weight: bold;
+    cursor: not-allowed;
+    color: #fff;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 10px;
+    transition: all 300ms ease;
+    background-color: $primary-color;
+  }
+
+  &__id {
+    &::before {
+      content: "Order ID: ";
+      font-weight: 500;
+    }
+  }
+
+  &__name {
+    &::before {
+      content: "Customer: ";
+      font-weight: 500;
+    }
+  }
+
+  &__address {
+    &::before {
+      content: "Address: ";
+      font-weight: 500;
+    }
+  }
+
+  &__total {
+    &::before {
+      content: "Total: ";
+      font-weight: 500;
+    }
+  }
+}

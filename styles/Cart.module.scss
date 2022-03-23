@@ -1,0 +1,174 @@
+@import "../styles/colors.scss";
+
+.cart {
+  padding: 50px;
+  display: flex;
+
+  @include breakpoint-down(small) {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+  }
+
+  @include breakpoint-down(large) {
+    flex-direction: column;
+  }
+
+  &__left {
+    flex: 2;
+  }
+
+  &__right {
+    flex: 1;
+  }
+
+  &__table {
+    width: 100%;
+    border-spacing: 20px;
+
+    @include breakpoint-down(large) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    tr:first-child {
+      @include breakpoint-down(large) {
+        display: none;
+      }
+    }
+
+    tr:not(:first-child) {
+      @include breakpoint-down(medium) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__name {
+    font-weight: 500;
+    color: $primary-color;
+    font-size: 18px;
+
+    @include breakpoint-down(medium) {
+      font-size: 24px;
+    }
+  }
+
+  &__total {
+    font-weight: 500;
+    font-size: 18px;
+
+    @include breakpoint-down(medium) {
+      font-size: 24px;
+    }
+  }
+
+  &__imgContainer {
+    width: 100px;
+    height: 100px;
+    position: relative;
+
+    @include breakpoint-down(medium) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-height: 300px;
+    background-color: #333;
+    padding: 50px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    border-radius: 50px;
+
+    @include breakpoint-down(small) {
+      border-radius: 0px;
+      padding: 25px;
+      padding-top: 10px;
+    }
+  }
+
+  &__totalTextTitle {
+    margin-right: 10px;
+  }
+
+  &__button {
+    font-weight: bold;
+    cursor: pointer;
+    color: $primary-color;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 10px;
+    transition: all 300ms ease;
+
+    &:hover {
+      color: #fff;
+      background-color: $primary-color;
+    }
+  }
+
+  &__extras,
+  &__price,
+  &__quantity {
+    @include breakpoint-down(medium) {
+      font-size: 22px;
+    }
+  }
+
+  &__price {
+    &::before {
+      content: "Price: ";
+      font-weight: 500;
+    }
+  }
+
+  &__quantity {
+    &::before {
+      content: "Quantity: ";
+      font-weight: 500;
+    }
+  }
+
+  &__total {
+    &::before {
+      content: "Total: ";
+      font-weight: 500;
+    }
+  }
+}
+
+.paymentMethods {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.payButton {
+  padding: 10px 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  background-color: #ffc439;
+  color: rgb(48, 48, 48);
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: all 300ms ease;
+
+  &:hover {
+    background-color: #f7b41a;
+  }
+}
